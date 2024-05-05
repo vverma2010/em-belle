@@ -10,6 +10,7 @@ module.exports = {
         primary: "#A18A68",
         darkGray: "#707070",
         lightGray: "#EFEFEF",
+        danger: "#D82700",
 
         ...defaultTheme.colors,
       },

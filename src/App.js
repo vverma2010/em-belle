@@ -2,7 +2,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components";
 import { useSelector } from "react-redux";
-import { Home } from "./pages";
+import { Home, NotFound } from "./pages";
 
 function App() {
   const { isLoggedIn, token } = useSelector((state) => state.user);
@@ -18,6 +18,7 @@ function App() {
             // element={!isLoggedIn ? <Navigate replace to="/" /> : <Home />}
             element={!isLoggedIn ? <Home /> : <Home />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>

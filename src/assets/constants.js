@@ -245,7 +245,8 @@ export const cartData = {
       total: 150.0,
       discountPercentage: 0,
       discountedPrice: 150.0,
-      thumbnail: "https://example.com/images/gold-earring-set.jpg",
+      thumbnail:
+        "https://www.jewelegance.com/cdn/shop/products/JGS-2208-07185.jpg?v=1675447130",
       link: "https://example.com/products/gold-earring-set",
     },
     {
@@ -256,7 +257,8 @@ export const cartData = {
       total: 200.0,
       discountPercentage: 0,
       discountedPrice: 200.0,
-      thumbnail: "https://example.com/images/silver-bracelet.jpg",
+      thumbnail:
+        "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe29d1833/images/hi-res/A14019BVEAA00_2.jpg?sw=640&sh=640",
       link: "https://example.com/products/silver-bracelet",
     },
     {
@@ -267,7 +269,8 @@ export const cartData = {
       total: 120.0,
       discountPercentage: 0,
       discountedPrice: 120.0,
-      thumbnail: "https://example.com/images/gold-necklace.jpg",
+      thumbnail:
+        "https://www.voylla.com/cdn/shop/products/BCJAI20104_03.jpg?v=1676960817",
       link: "https://example.com/products/gold-necklace",
     },
   ],
