@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, Navigate } from "react-router-dom";
+import "./App.css";
+import { Navbar } from "./components";
+import { useSelector } from "react-redux";
+import { Home } from "./pages";
 
 function App() {
+  const { isLoggedIn, token } = useSelector((state) => state.user);
+  console.log(isLoggedIn, "isLoggedIn", token);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="flex w-11/12 m-auto flex-col md:w-10/12">
+        <Navbar />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            // element={!isLoggedIn ? <Navigate replace to="/" /> : <Home />}
+            element={!isLoggedIn ? <Home /> : <Home />}
+          />
+        </Routes>
+      </div>
     </div>
   );
 }
