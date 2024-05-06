@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { not_found } from "../../assets";
+import { not_found, not_found_png } from "../../assets";
 
 export const NotFound = () => {
   return (
@@ -266,7 +266,7 @@ export const NotFound = () => {
                 </clipPath>
               </defs>
             </svg> */}
-            <img src={not_found} alt="not found" className="m-auto" />
+            <img src={not_found_png} alt="not found" className="m-auto w-[300-px] lg:w-1/2" />
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Page not found
             </h1>

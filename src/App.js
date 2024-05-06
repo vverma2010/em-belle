@@ -1,27 +1,54 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
-import { Navbar } from "./components";
+import { Footer, Navbar } from "./components";
 import { useSelector } from "react-redux";
-import { Home, NotFound } from "./pages";
+import { Home, NotFound, SelectedCategory } from "./pages";
+import { ConfigProvider } from "antd";
+import { useEffect } from "react";
 
 function App() {
   const { isLoggedIn, token } = useSelector((state) => state.user);
-  console.log(isLoggedIn, "isLoggedIn", token);
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [location]);
+
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+  }, []);
   return (
-    <div className="App">
-      <div className="flex w-11/12 m-auto flex-col md:w-10/12">
-        <Navbar />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            // element={!isLoggedIn ? <Navigate replace to="/" /> : <Home />}
-            element={!isLoggedIn ? <Home /> : <Home />}
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+    <ConfigProvider
+      theme={{
+        components: {
+          Checkbox: {
+            colorPrimary: "#A18A68",
+            algorithm: true,
+          },
+          Button: {
+            colorPrimary: "#A18A68",
+            algorithm: true,
+          },
+        },
+      }}
+    >
+      <div className="App">
+        <div className="flex w-11/12 max-w-screen-2xl m-auto flex-col md:w-10/12">
+          <Navbar />
+          <Routes>
+            <Route
+              exact
+              path="/"
+              // element={!isLoggedIn ? <Navigate replace to="/" /> : <Home />}
+              element={!isLoggedIn ? <Home /> : <Home />}
+            />
+            <Route path="/:type" element={<SelectedCategory />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </ConfigProvider>
   );
 }
 

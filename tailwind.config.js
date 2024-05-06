@@ -19,5 +19,10 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      borderColor: ["group-focus"], // Extend the group-focus variant for border colors
+    },
+  },
   plugins: [],
 };
