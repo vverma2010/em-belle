@@ -1,25 +1,23 @@
 import { Button } from "antd";
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const MobileViewCategory = () => {
   const navigate = useNavigate();
 
   let category = [
-    "Pendents",
+    "Pendants",
     "Bracelets",
     "Rings",
     "Cufflinks",
-    "Nosepins",
+    "Noserings",
     "Anklets",
     "Earrings",
     "Necklaces",
   ];
 
   const handlePageRedirection = (type) => {
-    console.log(type, "type");
     let category = type.toLowerCase();
-    navigate(`/${category}`);
+    navigate(`/jewellery/${category}`);
   };
 
   return (

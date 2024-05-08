@@ -29,6 +29,18 @@ function App() {
             colorPrimary: "#A18A68",
             algorithm: true,
           },
+          Switch: {
+            colorPrimary: "#A18A68",
+            algorithm: true,
+          },
+          Slider: {
+            colorPrimary: "#A18A68",
+            algorithm: true,
+          },
+          Select: {
+            colorPrimary: "#A18A68",
+            algorithm: true,
+          },
         },
       }}
     >
@@ -42,7 +54,11 @@ function App() {
               // element={!isLoggedIn ? <Navigate replace to="/" /> : <Home />}
               element={!isLoggedIn ? <Home /> : <Home />}
             />
-            <Route path="/:type" element={<SelectedCategory />} />
+            <Route
+              exact
+              path="/jewellery/:type"
+              element={<SelectedCategory />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

@@ -42,8 +42,9 @@ export const bannerData = [
 export const productsData = [
   {
     name: "Earring Set",
-    price: 150.0,
+    price: 15000.0,
     starRatings: 4.5,
+    onSale: false,
     description:
       "A beautiful set of earrings with a unique design, perfect for adding a touch of elegance to your outfit.",
     maxQuantity: 100,
@@ -74,8 +75,9 @@ export const productsData = [
   },
   {
     name: "Bracelet",
-    price: 200.0,
+    price: 20000.0,
     starRatings: 4.0,
+    onSale: false,
     description:
       "A stylish bracelet that adds a touch of elegance, perfect for any occasion.",
     maxQuantity: 50,
@@ -100,8 +102,9 @@ export const productsData = [
   },
   {
     name: "Necklace",
-    price: 120.0,
+    price: 90000.0,
     starRatings: 4.2,
+    onSale: false,
     description:
       "A luxurious necklace that exudes elegance and sophistication, perfect for a night out or a special occasion.",
     maxQuantity: 80,
@@ -127,8 +130,9 @@ export const productsData = [
   },
   {
     name: "Ring",
-    price: 180.0,
+    price: 10800.0,
     starRatings: 4.3,
+    onSale: false,
     description:
       "A stunning ring that combines classic design with modern elegance, perfect for those who appreciate timeless beauty.",
     maxQuantity: 70,
@@ -154,8 +158,9 @@ export const productsData = [
   },
   {
     name: "Pendant",
-    price: 100.0,
+    price: 7000.0,
     starRatings: 4.4,
+    onSale: false,
     description:
       "A delicate pendant that adds a touch of elegance to your neckline, perfect for a sophisticated look.",
     maxQuantity: 120,
@@ -181,8 +186,9 @@ export const productsData = [
   },
   {
     name: "Anklet",
-    price: 50.0,
+    price: 5000.0,
     starRatings: 4.1,
+    onSale: false,
     description:
       "A lightweight anklet that adds a touch of elegance to your footwear, perfect for a casual yet chic look.",
     maxQuantity: 200,
@@ -192,7 +198,7 @@ export const productsData = [
       weight: "0.05 grams",
       dimensions: "10 cm",
       colors: ["Silver"],
-      material: "Silver Plated",
+      material: "Silver",
     },
     primaryImage: "url_to_primary_image",
     images: ["url_to_image1", "url_to_image2"],
@@ -207,8 +213,9 @@ export const productsData = [
   },
   {
     name: "Cufflinks",
-    price: 150.0,
+    price: 1500.0,
     starRatings: 4.3,
+    onSale: false,
     description:
       "A pair of cufflinks that adds a touch of elegance to your wrist, perfect for a formal or semi-formal occasion.",
     maxQuantity: 80,
@@ -218,7 +225,7 @@ export const productsData = [
       weight: "0.3 grams",
       dimensions: "1 cm x 1 cm",
       colors: ["Gold"],
-      material: "Gold Plated",
+      material: "Gold",
     },
     primaryImage: "url_to_primary_image",
     images: ["url_to_image1", "url_to_image2"],
