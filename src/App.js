@@ -2,7 +2,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import { Footer, Navbar } from "./components";
 import { useSelector } from "react-redux";
-import { Home, NotFound, SelectedCategory } from "./pages";
+import { Home, NotFound, ProductDescription, SelectedCategory } from "./pages";
 import { ConfigProvider } from "antd";
 import { useEffect } from "react";
 
@@ -41,6 +41,10 @@ function App() {
             colorPrimary: "#A18A68",
             algorithm: true,
           },
+          Rate: {
+            colorPrimary: "#A18A68",
+            algorithm: true,
+          },
         },
       }}
     >
@@ -58,6 +62,11 @@ function App() {
               exact
               path="/jewellery/:type"
               element={<SelectedCategory />}
+            />
+            <Route
+              exact
+              path="/jewellery/:type/:sku"
+              element={<ProductDescription />}
             />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { productsData } from "../../assets/constants";
 import { Button, Divider, Select, Slider, Spin, Switch } from "antd";
 import Icon from "@ant-design/icons";
 import { LogoSpinnerSvg } from "../../assets";
+import { ProductCard } from "../../components";
 
 export const SelectedCategory = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ export const SelectedCategory = () => {
     sortBy: "recommended",
     // sortBy: "",
     materials: [],
-    priceRange: [0, 15000],
+    priceRange: [0, 100000],
     inStock: true,
     onSale: false,
   });
@@ -32,6 +33,7 @@ export const SelectedCategory = () => {
     );
     setSelectedCategoryProducts(data);
     setFilteredProducts(data);
+    applyFilters(data);
     setTimeout(() => setLoading(false), 1000);
   };
 
@@ -52,9 +54,10 @@ export const SelectedCategory = () => {
     }
   }, [selectedCategory]);
 
-  const applyFilters = () => {
+  const applyFilters = (data) => {
+    let dataToFilter = data || selectedCategoryProducts;
     setLoading(true);
-    let filteredData = selectedCategoryProducts.filter((product) => {
+    let filteredData = dataToFilter.filter((product) => {
       // Filter by materials
       if (
         filters.materials.length > 0 &&
@@ -84,6 +87,7 @@ export const SelectedCategory = () => {
       }
       return true;
     });
+    // console.log(filteredData, "DATA");
     setFilteredProducts(filteredData);
     setTimeout(() => setLoading(false), 2000);
   };
@@ -94,8 +98,6 @@ export const SelectedCategory = () => {
     setSelectedCategory(category);
     filterSelectedCategoryProducts(category);
   }, [location.pathname]);
-
-  console.log(filteredProducts, "FILTERED");
 
   return (
     <div className="min-h-screen flex flex-1">
@@ -114,7 +116,7 @@ export const SelectedCategory = () => {
         />
       ) : (
         <>
-          <div className="w-full flex flex-col gap-4">
+          <div className="w-full flex flex-col gap-8">
             <div className="bg-primary rounded-2xl h-1/5 flex-col flex justify-center items-center md:h-1/4 xl:h-1/3">
               {SelectedIcon && (
                 <img
@@ -129,7 +131,7 @@ export const SelectedCategory = () => {
             </div>
             <div className="flex relative">
               <div className="flex flex-1 gap-4">
-                <div className="w-1/4 flex flex-col items-start">
+                <div className="hidden flex-col items-start lg:flex w-1/4">
                   <h3 className="text-xl font-semibold">Filters</h3>
                   <div className="flex flex-col gap-4 w-full p-4">
                     <div className="flex w-full flex-col items-start gap-1">
@@ -170,6 +172,7 @@ export const SelectedCategory = () => {
                         placeholder="Select material"
                         size="large"
                         mode="multiple"
+                        maxTagCount="responsive"
                         value={filters.materials}
                         allowClear
                         onChange={(value) =>
@@ -237,8 +240,25 @@ export const SelectedCategory = () => {
                     </Button>
                   </div>
                 </div>
-                <Divider type="vertical" className="h-full" />
-                <div className="bg-blue-400 w-3/4 h-full">Products</div>
+                <Divider type="vertical" className="hidden h-full lg:block" />
+                <div className=" w-3/4 h-full grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                  {filteredProducts.map((product, product_index) => {
+                    return (
+                      // <Link
+                      //   key={product_index + product.sku}
+                      //   to={`${location.pathname}/${product.sku.toLowerCase()}`}
+                      // >
+                      <div key={product_index + product.sku} className="group">
+                        <ProductCard
+                          product={product}
+                          index={product_index}
+                          path={location.pathname}
+                        />
+                      </div>
+                      // </Link>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
